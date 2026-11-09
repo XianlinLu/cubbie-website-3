@@ -6,19 +6,21 @@
   max-height: 760px;
 }
 .character {
-  position: absolute;
-  left: 0;
+  position: fixed;
+  z-index: 2;
+  left: 9.5vw;
   top: 15vw;
-  width: 32vw;
-  height: 24vw;
+  width: 25vw;
+  height: 21.1vw;
   overflow: hidden;
+  pointer-events: none;
 }
 .character img {
   position: absolute;
-  width: 41vw;
+  width: 39vw;
   max-width: none;
   height: auto;
-  left: -5vw;
+  left: -7vw;
   top: 0;
 }
 .intro {
@@ -39,7 +41,7 @@
   z-index: 50;
   right: 40px;
   top: 28px;
-  width: calc(var(--wide) * (1 - var(--progress)) + 170px * var(--progress));
+  width: var(--media-width, var(--wide));
   aspect-ratio: 1.777777;
   border: 0;
   padding: 0;
@@ -53,7 +55,7 @@
 .media > img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 1s var(--ease);
 }
 .media:hover > img {
@@ -164,4 +166,24 @@
   opacity: 0.65;
   margin: 25px auto 0;
   max-width: 385px;
+}
+
+.titleTravel {
+  display: block;
+  transform: translate3d(var(--title-x, 0px), 0, 0);
+  will-change: transform;
+}
+.titleText {
+  display: inline-block;
+  transform: skewX(var(--title-skew, 0deg));
+  transform-origin: 0 100%;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.settled .titleText {
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .titleText {
+    transition: none;
+  }
 }

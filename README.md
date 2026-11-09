@@ -33,9 +33,9 @@ npm run build
 
 ## Interaction
 
-Desktop navigation expands after scrolling; menu groups support click and keyboard focus. The media preview contracts into a floating walkthrough control. Feature cards react to scroll position. The page includes five weekday tabs, coursework and FAQ accordions, section anchors, and keyboard-accessible dialogs.
+Desktop navigation folds shortly after scrolling, expands on hover, and opens again near the footer. Menu groups support click and keyboard focus. The media preview follows a viewport-based contraction into a 170px floating walkthrough control. Titles translate and tilt with scroll direction. Feature cards activate across the viewport midpoint, using a 1.5-second transition between full size and 56% scale. Wheel motion uses frame-rate independent damping and respects reduced-motion preferences. The page includes five weekday tabs, coursework and FAQ accordions, section anchors, and keyboard-accessible dialogs.
 
-The setup form and illustrated walkthrough are frontend previews. They do not connect accounts, send messages, store form data, or operate a backend. The final Get started action opens the existing Cubbie sign-in page. Other product and policy links retain their Cubbie destinations.
+The setup form and animated process walkthrough are frontend previews. They do not connect accounts, send messages, store form data, or operate a backend. The final Get started action opens the existing Cubbie sign-in page. Other product and policy links retain their Cubbie destinations.
 
 ## Deployment
 
@@ -52,3 +52,7 @@ NEXT_PUBLIC_BASE_PATH=/cubbie-website-3 npm run build
 ## Brand and media
 
 This repository presents Cubbie brand content and original character assets supplied by the project owner. The original PNG files remain intact; layout, placement, and motion are implemented in maintainable React components. Brand, image, and font rights remain with their respective rights holders. The project owner is responsible for the supplied usage permissions.
+
+## Artwork placement
+
+Each of the nine supplied character/scene PNGs appears in exactly one place: three individual characters in the opening composition, one blue-lit scene in the floating preview, four distinct scenes in the feature cards, and one group artwork in the weekly planner. Weekday tabs share one persistent image element. Dialogs and the Canvas panel use editable interface graphics instead of repeating character images. The supplied square crown icon is the favicon; the full wordmark remains the brand logo.

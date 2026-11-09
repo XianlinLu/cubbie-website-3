@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Student Planner Powered by Your AI School Assistant. Bring assignments, course materials, school email, your calendar and reminders into one conversation.",
   icons: {
-    icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/cubbie-logo.png`,
+    icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/cubbie-icon.png`,
   },
   metadataBase: new URL("https://xianlinlu.github.io/cubbie-website-3/"),
   openGraph: {

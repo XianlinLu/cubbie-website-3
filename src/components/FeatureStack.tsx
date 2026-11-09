@@ -12,17 +12,21 @@ export function FeatureStack() {
     const update = () => {
       const cards =
         root.current?.querySelectorAll<HTMLElement>("[data-feature]");
-      let nearest = Infinity,
-        index = 0;
+      let index = 0;
+      const container =
+        root.current?.querySelector<HTMLElement>("[data-cards]");
+      const top = container?.getBoundingClientRect().top ?? 0;
       cards?.forEach((card, i) => {
-        const r = card.getBoundingClientRect();
-        const d = Math.abs(r.top + r.height / 2 - window.innerHeight / 2);
-        const scale = Math.max(0.62, 1 - (d / window.innerHeight) * 0.38);
-        card.style.setProperty("--card-scale", String(scale));
-        if (d < nearest) {
-          nearest = d;
-          index = i;
-        }
+        if (top + card.offsetTop < window.innerHeight / 2) index = i;
+      });
+      cards?.forEach((card, i) => {
+        card.style.setProperty("--card-scale", i === index ? "1" : "0.56");
+        card.style.transformOrigin = i < index ? "50% 0%" : "50% 100%";
+        card.dataset.active = String(i === index);
+        card.style.setProperty(
+          "--overlap",
+          `${48 - card.offsetHeight * 0.44}px`,
+        );
       });
       setActive(index);
       frame = 0;
@@ -32,8 +36,10 @@ export function FeatureStack() {
     };
     update();
     window.addEventListener("scroll", tick, { passive: true });
+    window.addEventListener("resize", tick);
     return () => {
       window.removeEventListener("scroll", tick);
+      window.removeEventListener("resize", tick);
       cancelAnimationFrame(frame);
     };
   }, []);
@@ -55,9 +61,18 @@ export function FeatureStack() {
       <div className={styles.stage}>
         <div className={styles.labels}>
           <span>One student planner</span>
-          <span className={styles.current}>{features[active].title}</span>
+          <span className={styles.current}>
+            <span
+              className={styles.labelTrack}
+              style={{ transform: `translateY(${-active * 42}px)` }}
+            >
+              {features.map((feature) => (
+                <span key={feature.title}>{feature.title}</span>
+              ))}
+            </span>
+          </span>
         </div>
-        <div className={styles.cards}>
+        <div data-cards className={styles.cards}>
           {features.map((feature, i) => (
             <a
               key={feature.title}

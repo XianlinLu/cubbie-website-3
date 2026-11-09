@@ -5,7 +5,7 @@ export const features = [
       "Assignments, due dates and announcements from every Canvas course in one list, with reminders before work is due.",
     link: "Never miss a deadline",
     href: "https://cubbie.ai/use-cases/never-miss-a-canvas-deadline",
-    image: "cubbie-red.png",
+    image: "cubbie-platform.png",
     theme: "red",
   },
   {
@@ -14,7 +14,7 @@ export const features = [
       "Ask about course material and turn a large task into smaller steps you can change.",
     link: "Coursework help",
     href: "https://cubbie.ai/features/coursework-help",
-    image: "cubbie-blue.png",
+    image: "cubbie-theatre.png",
     theme: "blue",
   },
   {
@@ -23,7 +23,7 @@ export const features = [
       "Search Gmail, Drive and your Canvas files for the details attached to a course or assignment.",
     link: "All integrations",
     href: "https://cubbie.ai/integrations",
-    image: "cubbie-pink.png",
+    image: "cubbie-together.png",
     theme: "pink",
   },
   {
@@ -32,7 +32,7 @@ export const features = [
       "Build a study plan, set reminders and add study time to Google Calendar.",
     link: "All features",
     href: "https://cubbie.ai/features",
-    image: "cubbie-crew.png",
+    image: "cubbie-journey.png",
     theme: "crew",
   },
 ];

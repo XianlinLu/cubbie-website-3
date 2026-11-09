@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { ScrollMotion } from "./ScrollMotion";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
 import { FeatureStack } from "./FeatureStack";
@@ -24,11 +25,12 @@ export function CubbieHome() {
       <a href="#overview" className="skip-link">
         Skip to content
       </a>
+      <ScrollMotion />
       <Header onStart={start} />
       <main>
         <Hero onWatch={watch} onStart={start} />
-        <Problem />
         <FeatureStack />
+        <Problem />
         <CanvasSection onWatch={watch} />
         <CourseworkSection />
         <AdminSection />

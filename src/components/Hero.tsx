@@ -11,21 +11,62 @@ export function Hero({
   onStart: () => void;
 }) {
   const media = useRef<HTMLButtonElement>(null);
+  const character = useRef<HTMLDivElement>(null);
+  const statement = useRef<HTMLElement>(null);
   useEffect(() => {
     let raf = 0;
+    let previous = window.scrollY;
+    let direction = 1;
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => {
-      const p = Math.min(1, window.scrollY / 630);
-      media.current?.style.setProperty("--progress", String(p));
-      media.current?.classList.toggle(styles.mini, p > 0.9);
+      const vw = window.innerWidth;
+      const y = window.scrollY;
+      if (Math.abs(y - previous) > 0.1) direction = y > previous ? 1 : -1;
+      previous = y;
+      const wide = vw - 80;
+      const initial = (((vw + 16) * (vw < 1430 ? 5 : 4)) / 12) * 0.5625;
+      const scale = Math.max(170 / wide, 1 - (y + initial) / (0.5625 * vw));
+      const progress = (1 - scale) / (1 - 170 / wide);
+      const visibleWidth = wide * scale;
+      media.current?.style.setProperty("--media-width", `${visibleWidth}px`);
+      media.current?.classList.toggle(styles.mini, visibleWidth < 260);
+      if (character.current) {
+        character.current.style.left = `${vw - 40 - visibleWidth - vw * 0.25}px`;
+        character.current.style.top = `${vw * 0.16 + (visibleWidth * 0.5625) / 2 - (vw * 0.211) / 2 - 2 * progress * vw * 0.1 + Math.min(0, 0.49 * vw - y - initial)}px`;
+        character.current.style.visibility =
+          y > vw * 0.65 ? "hidden" : "visible";
+      }
+      statement.current
+        ?.querySelectorAll<HTMLElement>("[data-title-line]")
+        .forEach((line, index) => {
+          const r = line.getBoundingClientRect();
+          const distance = innerHeight / 2 - r.top - 0.7 * r.height;
+          const travel = Math.min(0, distance / (innerHeight / 2));
+          const sign = index % 2 ? -1 : 1;
+          line.style.setProperty(
+            "--title-x",
+            reduced.matches ? "0px" : `${(sign * travel * vw) / 4}px`,
+          );
+          line.style.setProperty(
+            "--title-skew",
+            reduced.matches || distance >= 0
+              ? "0deg"
+              : `${sign * direction * -15}deg`,
+          );
+          line.classList.toggle(styles.settled, distance >= 0);
+        });
       raf = 0;
     };
     const scroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
     };
     update();
+    document.fonts.ready.then(scroll);
     window.addEventListener("scroll", scroll, { passive: true });
+    window.addEventListener("resize", scroll);
     return () => {
       window.removeEventListener("scroll", scroll);
+      window.removeEventListener("resize", scroll);
       cancelAnimationFrame(raf);
     };
   }, []);
@@ -36,7 +77,7 @@ export function Hero({
         id="top"
         aria-label="Your schoolwork, connected"
       >
-        <div className={styles.character}>
+        <div ref={character} className={styles.character}>
           <img
             src={asset("/images/cubbie-red.png")}
             alt="Cubbie character in a red knit hat holding a pink lollipop"
@@ -59,8 +100,8 @@ export function Hero({
           aria-label="See how Cubbie works"
         >
           <img
-            src={asset("/images/cubbie-crew.png")}
-            alt="Three Cubbie characters in their original outfits"
+            src={asset("/images/cubbie-spotlight.png")}
+            alt="Original Cubbie characters beneath blue stage lights"
             width="2048"
             height="1106"
             fetchPriority="high"
@@ -71,30 +112,42 @@ export function Hero({
           </span>
         </button>
       </section>
-      <section className={styles.statement} aria-labelledby="hero-title">
+      <section
+        ref={statement}
+        className={styles.statement}
+        aria-labelledby="hero-title"
+      >
         <p className={styles.overline}>Your schoolwork, connected</p>
         <h1 id="hero-title">
-          <span className={styles.line}>Student Planner</span>
-          <span className={`${styles.line} ${styles.middle}`}>
-            Powered by Your
-            <span className={styles.blue}>
-              <img
-                src={asset("/images/cubbie-blue.png")}
-                alt=""
-                width="2048"
-                height="1106"
-              />
+          <span data-title-line className={styles.line}>
+            <span className={styles.titleTravel}>
+              <span className={styles.titleText}>Student Planner</span>
             </span>
           </span>
-          <span className={`${styles.line} ${styles.last}`}>
-            AI School Assistant
-            <span className={styles.pink}>
-              <img
-                src={asset("/images/cubbie-pink.png")}
-                alt=""
-                width="2048"
-                height="1106"
-              />
+          <span data-title-line className={`${styles.line} ${styles.middle}`}>
+            <span className={styles.titleTravel}>
+              <span className={styles.titleText}>Powered by Your</span>
+              <span className={styles.blue}>
+                <img
+                  src={asset("/images/cubbie-blue.png")}
+                  alt=""
+                  width="2048"
+                  height="1106"
+                />
+              </span>
+            </span>
+          </span>
+          <span data-title-line className={`${styles.line} ${styles.last}`}>
+            <span className={styles.titleTravel}>
+              <span className={styles.titleText}>AI School Assistant</span>
+              <span className={styles.pink}>
+                <img
+                  src={asset("/images/cubbie-pink.png")}
+                  alt=""
+                  width="2048"
+                  height="1106"
+                />
+              </span>
             </span>
           </span>
         </h1>

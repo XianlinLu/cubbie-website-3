@@ -41,10 +41,12 @@
 }
 .labels .current {
   font-family: var(--font-display);
-  font-size: 34px;
+  font-size: 30px;
   line-height: 1;
   text-align: right;
-  max-width: 200px;
+  max-width: 240px;
+  height: 42px;
+  overflow: hidden;
 }
 .cards {
   position: relative;
@@ -61,11 +63,11 @@
   overflow: hidden;
   background: #fafafa;
   text-align: left;
-  transform: scale(var(--card-scale, 0.8));
-  transform-origin: center center;
-  transition: transform 0.35s ease-out;
+  transform: scale(var(--card-scale, 0.56));
+  transform-origin: 50% 100%;
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
-  margin-bottom: -115px;
+  margin-bottom: var(--overlap, -220px);
   position: relative;
   box-shadow: 0 15px 45px #00000018;
 }
@@ -96,7 +98,8 @@
   left: 24px;
   top: 24px;
   font-size: 12px;
-  border: 1px solid #2f2f2f44;
+  border: 1px solid #ffffff55;
+  background: #fafafae8;
   border-radius: 50%;
   width: 34px;
   height: 34px;
@@ -147,4 +150,24 @@
   color: #d0d0d0;
   font-size: 13px;
   line-height: 1.5;
+}
+
+.labelTrack {
+  display: block;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.labelTrack > span {
+  display: block;
+  height: 42px;
+  white-space: nowrap;
+  line-height: 42px;
+}
+.card[data-active="true"] {
+  z-index: 3;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .labelTrack {
+    transition: none;
+  }
 }

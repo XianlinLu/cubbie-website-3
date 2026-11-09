@@ -82,13 +82,27 @@ export function CanvasSection({ onWatch }: { onWatch: () => void }) {
         <div className={styles.canvasPanel}>
           <div className={styles.canvasWorkspace}>
             <div className={styles.canvasWorkspaceHeading}>
-              <span className={styles.canvasIcon}><BookOpen size={28} strokeWidth={1.4} /></span>
-              <div><p className="eyebrow">Canvas</p><h3>Your schoolwork, connected</h3></div>
+              <span className={styles.canvasIcon}>
+                <BookOpen size={28} strokeWidth={1.4} />
+              </span>
+              <div>
+                <p className="eyebrow">Canvas</p>
+                <h3>Your schoolwork, connected</h3>
+              </div>
             </div>
             <div className={styles.canvasSources}>
-              <span><ClipboardList size={18} />Assignments</span>
-              <span><FileText size={18} />Course files</span>
-              <span><CalendarDays size={18} />Due dates</span>
+              <span>
+                <ClipboardList size={18} />
+                Assignments
+              </span>
+              <span>
+                <FileText size={18} />
+                Course files
+              </span>
+              <span>
+                <CalendarDays size={18} />
+                Due dates
+              </span>
             </div>
           </div>
           <div className={styles.promptList}>
@@ -179,7 +193,9 @@ export function CourseworkSection() {
                 const Icon = processIcons[i];
                 return (
                   <li key={title}>
-                    <span className={styles.orbitIcon}><Icon size={25} strokeWidth={1.4} /></span>
+                    <span className={styles.orbitIcon}>
+                      <Icon size={25} strokeWidth={1.4} />
+                    </span>
                     <span>{title}</span>
                   </li>
                 );

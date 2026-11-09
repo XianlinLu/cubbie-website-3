@@ -46,7 +46,13 @@ export function Header({ onStart }: { onStart: () => void }) {
   const [menu, setMenu] = useState<number | null>(null);
   const nav = useRef<HTMLElement>(null);
   useEffect(() => {
-    const scroll = () => setCompact(window.scrollY > 140);
+    const scroll = () => {
+      const footer = document.getElementById("contact");
+      const inFooter = footer
+        ? footer.getBoundingClientRect().top < innerHeight * 0.65
+        : false;
+      setCompact(window.scrollY > 20 && !inFooter);
+    };
     scroll();
     window.addEventListener("scroll", scroll, { passive: true });
     return () => window.removeEventListener("scroll", scroll);
