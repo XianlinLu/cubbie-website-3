@@ -23,17 +23,6 @@
   left: -7vw;
   top: 0;
 }
-.intro {
-  position: absolute;
-  left: 42px;
-  top: 110px;
-  width: 310px;
-}
-.intro p {
-  font-size: 11px;
-  letter-spacing: 0.4px;
-  margin-bottom: 25px;
-}
 .media {
   --progress: 0;
   --wide: min(calc((100vw - 80px) * 0.664), calc(100vw - 535px));
@@ -156,8 +145,8 @@
   font-size: 16px;
   line-height: 1.55;
 }
-.summary .button {
-  margin-top: 30px;
+.summary > a {
+  margin-top: 24px;
 }
 .summary small {
   display: block;

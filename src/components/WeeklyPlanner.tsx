@@ -8,17 +8,43 @@ import styles from "./WeeklyPlanner.module.css";
 const week = [
   {
     day: "Monday",
+    image: "cubbie-monday.png",
+    width: 2538,
+    height: 1418,
+    alt: "Cubbie characters together in a room with vintage computers",
     description: "Check upcoming assignments and anything that changed.",
   },
-  { day: "Tuesday", description: "Break a large assignment into milestones." },
+  {
+    day: "Tuesday",
+    image: "cubbie-tuesday.png",
+    width: 3360,
+    height: 1816,
+    alt: "Cubbie characters gathered around their resting pink-outfit friend",
+    description: "Break a large assignment into milestones.",
+  },
   {
     day: "Wednesday",
+    image: "cubbie-wednesday.png",
+    width: 3360,
+    height: 1816,
+    alt: "Cubbie character with a rabbit bow playing chess",
     description:
       "Find your professor’s latest email and the course file it mentions.",
   },
-  { day: "Thursday", description: "Look at what’s left and adjust the plan." },
+  {
+    day: "Thursday",
+    image: "cubbie-thursday.png",
+    width: 3360,
+    height: 1878,
+    alt: "The full Cubbie character group in their original outfits",
+    description: "Look at what’s left and adjust the plan.",
+  },
   {
     day: "Friday",
+    image: "cubbie-friday.png",
+    width: 3244,
+    height: 1846,
+    alt: "Three Cubbie characters in red, green and yellow against a glowing backdrop",
     description: "Check what’s done, missing and coming up before the weekend.",
   },
 ] as const;
@@ -108,13 +134,19 @@ export function WeeklyPlanner() {
             </div>
           ))}
           <div className={styles.artwork}>
-            <img
-              src={asset("/images/cubbie-crew.png")}
-              alt="Three Cubbie characters in their original outfits crossing together"
-              width={2048}
-              height={1106}
-              loading="lazy"
-            />
+            {week.map(({ day, image, alt, width, height }, index) => (
+              <img
+                key={day}
+                src={asset(`/images/${image}`)}
+                alt={selected === index ? alt : ""}
+                aria-hidden={selected !== index}
+                data-active={selected === index}
+                width={width}
+                height={height}
+                loading="lazy"
+                decoding="async"
+              />
+            ))}
           </div>
         </div>
         <div className={styles.action}>

@@ -55,4 +55,6 @@ This repository presents Cubbie brand content and original character assets supp
 
 ## Artwork placement
 
-Each of the nine supplied character/scene PNGs appears in exactly one place: three individual characters in the opening composition, one blue-lit scene in the floating preview, four distinct scenes in the feature cards, and one group artwork in the weekly planner. Weekday tabs share one persistent image element. Dialogs and the Canvas panel use editable interface graphics instead of repeating character images. The supplied square crown icon is the favicon; the full wordmark remains the brand logo.
+The opening composition and feature cards use eight distinct character/scene PNGs. The weekly planner uses five additional supplied images, one for each weekday, and switches the artwork together with the active tab. Each character/scene image is used in one page location; the original image files remain unchanged. Dialogs and the Canvas panel use editable interface graphics. The supplied square crown icon is the favicon; the full wordmark remains the brand logo.
+
+The opening scene has no introductory caption or Get started button. The header action appears after scrolling. The All features link below the opening summary has a 24px top gap.

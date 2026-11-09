@@ -28,7 +28,7 @@ export function CubbieHome() {
       <ScrollMotion />
       <Header onStart={start} />
       <main>
-        <Hero onWatch={watch} onStart={start} />
+        <Hero onWatch={watch} />
         <FeatureStack />
         <Problem />
         <CanvasSection onWatch={watch} />

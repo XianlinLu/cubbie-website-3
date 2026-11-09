@@ -1,15 +1,9 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { ArrowDown, ArrowUpRight, Play } from "lucide-react";
+import { ArrowDown, Play } from "lucide-react";
 import { asset } from "@/lib/assets";
 import styles from "./Hero.module.css";
-export function Hero({
-  onWatch,
-  onStart,
-}: {
-  onWatch: () => void;
-  onStart: () => void;
-}) {
+export function Hero({ onWatch }: { onWatch: () => void }) {
   const media = useRef<HTMLButtonElement>(null);
   const character = useRef<HTMLDivElement>(null);
   const statement = useRef<HTMLElement>(null);
@@ -85,13 +79,6 @@ export function Hero({
             height="1106"
             fetchPriority="high"
           />
-        </div>
-        <div className={styles.intro}>
-          <p className="eyebrow">Your schoolwork, connected</p>
-          <button className="button yellow" onClick={onStart}>
-            Get started
-            <ArrowUpRight size={14} />
-          </button>
         </div>
         <button
           ref={media}

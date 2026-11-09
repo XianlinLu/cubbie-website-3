@@ -122,13 +122,17 @@
 
 .artwork {
   min-width: 0;
-  display: flex;
+  display: grid;
   align-items: center;
   background: #fcfcfc;
   overflow: hidden;
 }
 
 .artwork img {
+  grid-area: 1 / 1;
+  min-height: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
   display: block;
   width: 100%;
   height: 100%;
@@ -147,5 +151,15 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+.artwork img[data-active="true"] {
+  opacity: 1;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .artwork img {
+    transition: none;
   }
 }
