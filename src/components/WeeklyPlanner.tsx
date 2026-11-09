@@ -105,17 +105,17 @@ export function WeeklyPlanner() {
                   ✳
                 </span>
               </div>
-              <div className={styles.artwork}>
-                <img
-                  src={asset("/images/cubbie-blue.png")}
-                  alt="Cubbie character in a blue outfit, resting on one hand"
-                  width={2048}
-                  height={1106}
-                  loading="lazy"
-                />
-              </div>
             </div>
           ))}
+          <div className={styles.artwork}>
+            <img
+              src={asset("/images/cubbie-crew.png")}
+              alt="Three Cubbie characters in their original outfits crossing together"
+              width={2048}
+              height={1106}
+              loading="lazy"
+            />
+          </div>
         </div>
         <div className={styles.action}>
           <a className="button" href="https://cubbie.ai/use-cases">

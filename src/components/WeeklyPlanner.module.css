@@ -56,15 +56,16 @@
 }
 
 .panelFrame {
+  display: grid;
+  grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+  gap: 24px;
   overflow: hidden;
   border-radius: 24px;
   background: #ebe2ff;
 }
 
 .panel {
-  display: grid;
-  grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
-  gap: 24px;
+  min-width: 0;
   min-height: 425px;
   animation: enter 0.3s ease both;
 }
@@ -120,6 +121,7 @@
 }
 
 .artwork {
+  min-width: 0;
   display: flex;
   align-items: center;
   background: #fcfcfc;

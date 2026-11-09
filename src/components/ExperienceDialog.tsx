@@ -8,15 +8,18 @@ import {
   Pause,
   Play,
   X,
+  Plug,
+  MessageCircle,
+  Search,
+  ShieldCheck,
 } from "lucide-react";
-import { asset } from "@/lib/assets";
 import { process, prompts } from "@/lib/content";
 import styles from "./ExperienceDialog.module.css";
-const artworks = [
-  "cubbie-red.png",
-  "cubbie-blue.png",
-  "cubbie-pink.png",
-  "cubbie-crew.png",
+const flow = [
+  { label: "Connect", Icon: Plug },
+  { label: "Ask", Icon: MessageCircle },
+  { label: "Review", Icon: Search },
+  { label: "Act", Icon: ShieldCheck },
 ];
 export function ExperienceDialog({
   mode,
@@ -177,16 +180,26 @@ export function ExperienceDialog({
             </a>
           )}
         </div>
-        <div
-          className={`${styles.art} ${step > 0 ? styles.group : ""}`}
-          key={step}
-        >
-          <img
-            src={asset(`/images/${artworks[step]}`)}
-            alt={`Original Cubbie character illustration, step ${step + 1}`}
-            width="2048"
-            height="1106"
-          />
+        <div className={styles.art} aria-hidden="true">
+          <span className={styles.artEyebrow}>Your schoolwork, connected</span>
+          <div className={styles.stepDisplay} key={step}>
+            <span className={styles.stepNumber}>0{step + 1}</span>
+            <span className={styles.stepLabel}>{flow[step].label}.</span>
+          </div>
+          <div className={styles.flow}>
+            {flow.map(({ label, Icon }, index) => (
+              <div
+                key={label}
+                className={`${styles.flowNode} ${step === index ? styles.flowActive : ""}`}
+              >
+                <span className={styles.flowIcon}>
+                  <Icon size={25} strokeWidth={1.4} />
+                </span>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+          <p className={styles.flowDescription}>{process[step][1]}</p>
         </div>
         <div className={styles.controls}>
           <div className={styles.counter}>
