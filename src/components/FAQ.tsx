@@ -1,32 +1,38 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import styles from './FAQ.module.css';
+import { useState } from "react";
+import styles from "./FAQ.module.css";
 
 const questions = [
   {
-    question: 'What is Cubbie?',
-    answer: 'Cubbie is an AI school assistant and student planner you text. It connects to Canvas and Google to keep track of assignments, email and your calendar, and helps you work through coursework.',
+    question: "What is Cubbie?",
+    answer:
+      "Cubbie is an AI school assistant and student planner you text. It connects to Canvas and Google to keep track of assignments, email and your calendar, and helps you work through coursework.",
   },
   {
-    question: 'Is Cubbie a homework answer generator?',
-    answer: 'No. Cubbie explains course material and helps you plan and review your work. You check what it writes, follow your instructor’s rules about AI and submit your own work.',
+    question: "Is Cubbie a homework answer generator?",
+    answer:
+      "No. Cubbie explains course material and helps you plan and review your work. You check what it writes, follow your instructor’s rules about AI and submit your own work.",
   },
   {
-    question: 'Does Cubbie work with Canvas?',
-    answer: 'Yes. Connect Canvas with the Cubbie Chrome extension, or at supported schools through a one-time secure sign-in link. Cubbie syncs your courses, assignments, grades, announcements and files.',
+    question: "Does Cubbie work with Canvas?",
+    answer:
+      "Yes. Connect Canvas with the Cubbie Chrome extension, or at supported schools through a one-time secure sign-in link. Cubbie syncs your courses, assignments, grades, announcements and files.",
   },
   {
-    question: 'Can Cubbie send email or change my calendar on its own?',
-    answer: 'Cubbie acts when you ask. It shows you an email and asks before sending it, and checks with you before changing an event other people are invited to.',
+    question: "Can Cubbie send email or change my calendar on its own?",
+    answer:
+      "Cubbie acts when you ask. It shows you an email and asks before sending it, and checks with you before changing an event other people are invited to.",
   },
   {
-    question: 'Does Cubbie work on Android?',
-    answer: 'Yes. iPhones reach Cubbie over iMessage and Android phones over RCS, using the same number.',
+    question: "Does Cubbie work on Android?",
+    answer:
+      "Yes. iPhones reach Cubbie over iMessage and Android phones over RCS, using the same number.",
   },
   {
-    question: 'Is Cubbie always accurate?',
-    answer: 'No. AI output and synced data can be incomplete, out of date or wrong. Check important dates, grades, instructions and course content against the original source.',
+    question: "Is Cubbie always accurate?",
+    answer:
+      "No. AI output and synced data can be incomplete, out of date or wrong. Check important dates, grades, instructions and course content against the original source.",
   },
 ] as const;
 
@@ -36,7 +42,11 @@ export function FAQ() {
   return (
     <section className={styles.section} id="faq" aria-labelledby="faq-heading">
       <div className={`section-shell ${styles.layout}`}>
-        <h2 className={styles.heading} id="faq-heading">Questions<br />students ask</h2>
+        <h2 className={styles.heading} id="faq-heading">
+          Questions
+          <br />
+          students ask
+        </h2>
         <div className={styles.questions}>
           {questions.map(({ question, answer }, index) => {
             const isOpen = openIndex === index;

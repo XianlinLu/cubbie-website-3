@@ -1,0 +1,279 @@
+.dialog {
+  width: calc(100vw - 48px);
+  max-width: none;
+  height: calc(100dvh - 48px);
+  max-height: none;
+  border: 0;
+  padding: 0;
+  border-radius: 24px;
+  background: var(--purple);
+  color: #fafafa;
+  overflow: hidden;
+}
+.dialog::backdrop {
+  background: #23234ae8;
+  backdrop-filter: blur(6px);
+}
+.panel {
+  position: relative;
+  height: 100%;
+  padding: 90px 48px 100px;
+  display: grid;
+  grid-template-columns: 46% 54%;
+  gap: 20px;
+}
+.close {
+  position: absolute;
+  left: 26px;
+  top: 24px;
+  border: 0;
+  background: #5b21b6;
+  color: #fff;
+  width: 46px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  transform: skew(-12deg);
+  border-radius: 5px;
+  z-index: 5;
+}
+.close svg {
+  transform: skew(12deg);
+}
+.copy {
+  position: relative;
+  z-index: 2;
+  overflow: auto;
+  padding-right: 20px;
+  scrollbar-width: thin;
+}
+.copy > p.eyebrow {
+  font-size: 11px;
+  margin-bottom: 22px;
+}
+.copy h2 {
+  font-size: 104px;
+  line-height: 0.93;
+  letter-spacing: -2.5px;
+  max-width: 580px;
+}
+.description {
+  max-width: 470px;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 30px;
+}
+.copy > a {
+  margin-top: 35px;
+  color: #2f2f2f;
+}
+.art {
+  align-self: center;
+  animation: enter 0.6s var(--ease);
+  background: #fcfcfc;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 1.08;
+  position: relative;
+}
+.art img {
+  width: 185%;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: -42.5%;
+}
+.art.group {
+  aspect-ratio: 1.4;
+}
+.art.group img {
+  width: 100%;
+  left: 0;
+  object-fit: contain;
+}
+.controls {
+  position: absolute;
+  bottom: 24px;
+  left: 26px;
+  right: 32px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.counter {
+  background: #fafafa;
+  color: #2f2f2f;
+  border-radius: 5px;
+  padding: 6px 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  transform: skew(-10deg);
+}
+.counter strong {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+}
+.counter span {
+  font-size: 11px;
+}
+.dots {
+  display: flex;
+  gap: 10px;
+}
+.dots button {
+  width: 8px;
+  height: 8px;
+  background: #fafafa55;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+}
+.dots button.active {
+  background: #fafafa;
+  transform: scale(1.25);
+}
+.arrows {
+  display: flex;
+  gap: 10px;
+  min-width: 110px;
+  justify-content: flex-end;
+}
+.arrows button {
+  border: 1px solid #ffffff88;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: white;
+}
+.arrows button:hover {
+  background: #ffffff22;
+}
+.form {
+  margin-top: 26px;
+  color: #2f2f2f;
+}
+.form fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+}
+.form legend {
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.form fieldset label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  cursor: pointer;
+  background: #fafafa;
+  padding: 17px 20px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  width: 50%;
+  font-size: 16px;
+}
+.form fieldset label.checked {
+  border-color: #5b21b6;
+}
+.form fieldset input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.form fieldset label:focus-within {
+  outline: 2px solid #502b1a;
+  outline-offset: 3px;
+}
+.check {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  color: #5b21b6;
+}
+.questionLabel {
+  display: block;
+  font-size: 13px;
+  color: #fff;
+}
+.questionLabel textarea {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  border: 0;
+  padding: 18px;
+  border-radius: 8px;
+  color: #2f2f2f;
+  background: #fafafa;
+  font-size: 15px;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 105px;
+  max-height: 180px;
+}
+.review {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 20px;
+}
+.review p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.review blockquote {
+  margin: 12px 0;
+  font-size: 19px;
+  line-height: 1.4;
+}
+.confirm {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  color: white;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.confirm input {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: #5b21b6;
+}
+.preview {
+  font-size: 10px;
+  line-height: 1.5;
+  color: #fff;
+  margin: 18px 0;
+  opacity: 0.85;
+}
+.form > button:disabled,
+.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,374 @@
+.problem {
+  padding: 100px 0 140px;
+}
+.problem > .section-shell > .eyebrow {
+  margin-bottom: 35px;
+}
+.problemGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 100px;
+  margin-top: 35px;
+  align-items: end;
+}
+.problemGrid h2 {
+  font-size: 88px;
+  line-height: 0.98;
+  letter-spacing: -2px;
+}
+.problemGrid p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.problemGrid p + p {
+  margin-top: 20px;
+}
+.connections {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 1px solid #ddd;
+}
+.connections span {
+  font-size: 14px;
+}
+.connections img {
+  width: 100px;
+  height: 36px;
+  object-fit: contain;
+}
+.canvas {
+  padding: 142px 0;
+  background: #fafafa;
+}
+.twoColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+.twoColumn h2 {
+  font-size: 110px;
+  line-height: 0.92;
+}
+.twoColumn > div > a {
+  margin-top: 35px;
+}
+.canvasPanel {
+  overflow: hidden;
+  background: #e2e8f4;
+  border-radius: 14px;
+  box-shadow: 0 15px 45px #00000005;
+}
+.canvasPanel > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.8517;
+  object-fit: contain;
+  background: #fcfcfc;
+}
+.promptList {
+  padding: 25px 30px 30px;
+}
+.promptList > p {
+  margin-bottom: 18px;
+}
+.promptList > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  border-bottom: 1px solid #2f2f2f26;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 15px 5px;
+  transition:
+    padding 0.25s,
+    background 0.25s;
+}
+.promptList > button.selected {
+  background: #fafafa;
+  border-radius: 7px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-color: transparent;
+}
+.promptList > button:hover {
+  padding-left: 12px;
+}
+.promptList .promptCta {
+  border: 0;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.coursework {
+  padding: 90px 0 0;
+}
+.courseTitle h2 {
+  font-size: 110px;
+  max-width: 1000px;
+  line-height: 0.9;
+}
+.courseGrid {
+  display: grid;
+  grid-template-columns: 1.12fr 1fr;
+  gap: 110px;
+  margin-top: 55px;
+  align-items: stretch;
+}
+.courseIntro {
+  max-width: 500px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.steps {
+  border-top: 1px solid #ddd;
+  margin-bottom: 35px;
+}
+.step {
+  border-bottom: 1px solid #ddd;
+}
+.step button {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  border: 0;
+  background: none;
+  gap: 14px;
+  padding: 20px 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.step button > svg {
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.stepNumber {
+  font-size: 11px;
+  opacity: 0.5;
+  width: 22px;
+  flex-shrink: 0;
+}
+.rotated {
+  transform: rotate(45deg);
+}
+.stepBody {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s;
+}
+.stepBody > div {
+  overflow: hidden;
+}
+.stepBody p {
+  padding: 0 25px 20px 36px;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.75;
+}
+.stepBody.open {
+  grid-template-rows: 1fr;
+}
+.courseGrid > div:first-child {
+  padding-bottom: 70px;
+}
+.processCard {
+  position: relative;
+  min-height: 630px;
+  border-radius: 14px 14px 0 0;
+  background: var(--purple);
+  padding: 45px 30px 0;
+  text-align: center;
+  overflow: hidden;
+}
+.processCard > p {
+  font-size: 13px;
+}
+.processCard h3 {
+  font-size: 93px;
+  line-height: 0.88;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+.redCharacter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 330px;
+  overflow: hidden;
+  background: #fcfcfc;
+}
+.redCharacter img {
+  width: 610px;
+  max-width: none;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+.processCard > a {
+  position: absolute;
+  left: 50%;
+  bottom: 48px;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+.admin {
+  padding: 140px 0;
+  background: #eeeede;
+}
+.adminHeading {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 95px;
+  align-items: end;
+}
+.adminHeading h2 {
+  font-size: 100px;
+  line-height: 0.92;
+}
+.adminHeading p {
+  max-width: 360px;
+  line-height: 1.6;
+}
+.adminGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 60px 0 40px;
+}
+.adminGrid article {
+  background: #fafafa;
+  border: 1px solid #2f2f2f0d;
+  border-radius: 12px;
+  min-height: 320px;
+  padding: 28px 24px;
+  position: relative;
+  transition: transform 0.4s var(--ease);
+}
+.adminGrid article:hover {
+  transform: translateY(-8px);
+}
+.adminGrid h3 {
+  font-size: 40px;
+  line-height: 1;
+  margin: 35px 0 15px;
+  max-width: 180px;
+}
+.adminGrid p {
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 200px;
+}
+.adminIndex {
+  position: absolute;
+  right: 24px;
+  top: 42px;
+  font-size: 11px;
+  opacity: 0.4;
+}
+.how {
+  padding: 140px 0;
+  background: #e7e1f4;
+}
+.how h2 {
+  font-size: 135px;
+  margin-top: 30px;
+  line-height: 0.9;
+}
+.processGrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+  margin: 65px 0 0;
+  padding: 0;
+}
+.processGrid li {
+  border-top: 1px solid #2f2f2f44;
+  padding-top: 20px;
+}
+.processTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.processTop span {
+  font-size: 14px;
+}
+.processGrid h3 {
+  font-size: 43px;
+  line-height: 1;
+  max-width: 220px;
+}
+.processGrid p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 18px;
+  max-width: 230px;
+}
+.control {
+  padding: 135px 0;
+  background: #004b1e;
+  color: #e7edd4;
+}
+.controlHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+.controlHeading h2 {
+  font-size: 110px;
+  line-height: 0.93;
+  max-width: 730px;
+}
+.controlHeading > svg {
+  flex-shrink: 0;
+  color: #95c154;
+}
+.controlGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 60px;
+  margin-top: 70px;
+}
+.controlGrid article {
+  border-top: 1px solid #e7edd455;
+  padding-top: 28px;
+}
+.controlGrid h3 {
+  font-size: 45px;
+  line-height: 1;
+  margin-top: 27px;
+}
+.controlGrid p {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.8;
+  margin-top: 18px;
+  max-width: 310px;
+}
+.controlNote {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.65;
+  max-width: 660px;
+  margin-top: 65px;
+}

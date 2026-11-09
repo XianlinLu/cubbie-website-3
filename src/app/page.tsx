@@ -1,1 +1,4 @@
-export default function Home(){ return <main><h1>Cubbie</h1><p>Your schoolwork, connected</p></main>; }
+import { CubbieHome } from "@/components/CubbieHome";
+export default function Home() {
+  return <CubbieHome />;
+}

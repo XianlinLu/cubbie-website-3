@@ -1,0 +1,173 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 60;
+  height: 0;
+  pointer-events: none;
+}
+.nav {
+  position: absolute;
+  left: 40px;
+  top: 28px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+  transition:
+    background 0.3s,
+    width 0.5s var(--ease);
+  border-radius: 25px;
+}
+.logo {
+  display: block;
+  width: 100px;
+  flex-shrink: 0;
+}
+.logo img {
+  width: 100px;
+  height: 39px;
+  object-fit: contain;
+}
+.items {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.item {
+  position: relative;
+}
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 42px;
+  border: 0;
+  background: none;
+  padding: 0 4px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+.navButton:hover {
+  opacity: 0.65;
+}
+.dropdown {
+  position: absolute;
+  left: 0;
+  top: 42px;
+  background: #fafafa;
+  color: #2f2f2f;
+  border: 1px solid #e4e2e6;
+  box-shadow: 0 12px 32px #0000000d;
+  border-radius: 12px;
+  width: 260px;
+  padding: 10px;
+}
+.dropdown a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.3;
+}
+.dropdown a:hover {
+  background: #ede5ff;
+}
+.mark {
+  display: none;
+  border: 0;
+  background: transparent;
+  width: 80px;
+  height: 42px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.mark span {
+  width: 22px;
+  height: 24px;
+  background: #fafafa;
+  border-radius: 50%;
+  position: relative;
+  transform: rotate(12deg);
+}
+.mark span:after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  width: 9px;
+  height: 15px;
+  border-radius: 50%;
+  background: #2f2f2f;
+}
+.compact {
+  background: #2f2f2f;
+  color: #fff;
+  gap: 0;
+}
+.compact .logo {
+  display: none;
+}
+.compact .mark {
+  display: flex;
+}
+.compact .items {
+  display: none;
+}
+.compact.expanded {
+  padding-right: 16px;
+}
+.compact.expanded .items {
+  display: flex;
+}
+.compact .navButton {
+  font-size: 12px;
+  padding: 0 10px;
+}
+.start {
+  position: absolute;
+  right: 230px;
+  top: 30px;
+  pointer-events: auto;
+  animation: appear 0.3s ease;
+}
+.start:focus-visible {
+  outline-color: #fff;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mark .skull {
+  display: block;
+  width: 38px;
+  height: 38px;
+  overflow: hidden;
+  background: none;
+  border-radius: 0;
+  transform: none;
+  position: relative;
+}
+.mark .skull:after {
+  display: none;
+}
+.mark .skull img {
+  width: 108px;
+  max-width: none;
+  height: 38px;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: brightness(0) invert(1);
+}

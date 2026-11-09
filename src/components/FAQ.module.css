@@ -12,7 +12,7 @@
 .heading {
   padding-right: 48px;
   font-size: 100px;
-  line-height: .88;
+  line-height: 0.88;
   letter-spacing: -3.3px;
 }
 
@@ -43,8 +43,8 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
-  letter-spacing: .21px;
-  transition: color .2s ease;
+  letter-spacing: 0.21px;
+  transition: color 0.2s ease;
 }
 
 .trigger:hover {
@@ -57,12 +57,12 @@
   width: 20px;
   height: 20px;
   flex: 0 0 20px;
-  transition: transform .35s var(--ease);
+  transition: transform 0.35s var(--ease);
 }
 
 .plus::before,
 .plus::after {
-  content: '';
+  content: "";
   position: absolute;
   background: currentColor;
   top: 9px;
@@ -75,7 +75,7 @@
   transform: rotate(90deg);
 }
 
-.item[data-open='true'] .plus {
+.item[data-open="true"] .plus {
   transform: rotate(45deg);
 }
 
@@ -84,10 +84,13 @@
   grid-template-rows: 0fr;
   visibility: hidden;
   opacity: 0;
-  transition: grid-template-rows .35s var(--ease), opacity .25s ease, visibility .35s;
+  transition:
+    grid-template-rows 0.35s var(--ease),
+    opacity 0.25s ease,
+    visibility 0.35s;
 }
 
-.item[data-open='true'] .answer {
+.item[data-open="true"] .answer {
   grid-template-rows: 1fr;
   visibility: visible;
   opacity: 1;
@@ -102,7 +105,7 @@
   padding: 0 48px 24px 0;
   font-size: 14px;
   line-height: 1.4;
-  letter-spacing: .21px;
+  letter-spacing: 0.21px;
   color: var(--ink);
-  opacity: .8;
+  opacity: 0.8;
 }
