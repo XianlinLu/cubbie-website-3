@@ -14,6 +14,9 @@ import {
   ShieldCheck,
   LockKeyhole,
   Plus,
+  BookOpen,
+  FileText,
+  ClipboardList,
 } from "lucide-react";
 import { asset } from "@/lib/assets";
 import { admin, coursework, process, control, prompts } from "@/lib/content";
@@ -77,13 +80,17 @@ export function CanvasSection({ onWatch }: { onWatch: () => void }) {
           </a>
         </div>
         <div className={styles.canvasPanel}>
-          <img
-            src={asset("/images/cubbie-blue.png")}
-            alt="Cubbie in a blue outfit, resting with their chin on their hand"
-            width="2048"
-            height="1106"
-            loading="lazy"
-          />
+          <div className={styles.canvasWorkspace}>
+            <div className={styles.canvasWorkspaceHeading}>
+              <span className={styles.canvasIcon}><BookOpen size={28} strokeWidth={1.4} /></span>
+              <div><p className="eyebrow">Canvas</p><h3>Your schoolwork, connected</h3></div>
+            </div>
+            <div className={styles.canvasSources}>
+              <span><ClipboardList size={18} />Assignments</span>
+              <span><FileText size={18} />Course files</span>
+              <span><CalendarDays size={18} />Due dates</span>
+            </div>
+          </div>
           <div className={styles.promptList}>
             <p className="eyebrow">Text Cubbie</p>
             {prompts.map((prompt, i) => (
@@ -167,15 +174,17 @@ export function CourseworkSection() {
               <br />
               Act.
             </h3>
-            <div className={styles.redCharacter}>
-              <img
-                src={asset("/images/cubbie-red.png")}
-                alt="Original Cubbie red-hat character"
-                width="2048"
-                height="1106"
-                loading="lazy"
-              />
-            </div>
+            <ol className={styles.processOrbit} aria-label="How Cubbie works">
+              {process.map(([title], i) => {
+                const Icon = processIcons[i];
+                return (
+                  <li key={title}>
+                    <span className={styles.orbitIcon}><Icon size={25} strokeWidth={1.4} /></span>
+                    <span>{title}</span>
+                  </li>
+                );
+              })}
+            </ol>
             <a className="button white" href="#how-it-works">
               See how it works
               <ArrowUpRight size={14} />
